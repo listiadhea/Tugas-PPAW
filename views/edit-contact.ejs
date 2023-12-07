@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <h2 class="text-center">Ubah Data Contact</h2>
+            <% if(typeof errors != 'undefined') { %> 
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <ul>
+                        <% errors.forEach(error => { %>
+                            <li><%= error.msg %> </li>
+                        <% }) %>
+                    </ul>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <% } %> 
+            <form method="post" action="/contact/update">
+                <input type="hidden" name="oldNama"  value="<%= (data.oldNama) ? data.oldNama : data.nama %>"/>
+
+                <div class="mb-3">
+                  <label for="nama" class="form-label">Nama</label>
+                  <input type="text" class="form-control" id="nama" name="nama" required value="<%= data.nama %>"/>
+                </div>
+
+                <div class="mb-3">
+                 <label for="email" class="form-label">Email</label>
+                 <input type="email" class="form-control" id="email" name="email" required value="<%= data.email %>"/>
+                </div>
+
+                <div class="mb-3">
+                 <label for="telepon" class="form-label">No Telepon</label>
+                 <input type="text" class="form-control" name="telepon" id="telepon" required value="<%= data.telepon %>"/>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-block" width="200">Ubah</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

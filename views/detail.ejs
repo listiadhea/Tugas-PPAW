@@ -1,0 +1,24 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Detail Contact</h2>
+
+            <% if (!data) { %>
+              <div class="alert alert-danger" role="alert">
+                Contact tidak ditemukan. <a href="/contact" class="alert-link">Kembali</a>
+              </div>
+            <% } else { %>
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><%= data.nama %> </h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><%= data.email %> </h6>
+                  <p class="card-text"><%= data.telepon %></p>
+                  <a href="/contact/edit/<%= data.nama %>" class="btn btn-info badge">ubah</a> 
+                  <a href="/contact/delete/<%= data.nama %>" class="btn btn-danger badge" onclick="return confirm('yakin?');">hapus</a> 
+                  <a href="/contact" class="card-link d-block mt-3">&laquo; Kembali</a>
+                </div>
+              </div>
+            <% } %> 
+        </div>
+    </div>
+</div>
